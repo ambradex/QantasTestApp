@@ -8,10 +8,14 @@
 import SwiftUI
 
 @main
-struct QantasTestAppApp: App {
+struct QantasTestApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let apiService: APIServiceProtocol = APIService()
+            
+            AirportListView(
+                viewModel: AirportListViewModel(apiService: apiService)
+            )
         }
     }
 }
